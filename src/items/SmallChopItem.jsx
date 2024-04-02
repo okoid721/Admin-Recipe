@@ -3,7 +3,7 @@ import React from 'react';
 import { FaCommentAlt } from 'react-icons/fa';
 import Button from '../Button';
 
-const BreakFastItem = ({
+const SmallChopItem = ({
   id,
   name,
   image,
@@ -57,4 +57,4 @@ const BreakFastItem = ({
   );
 };
 
-export default BreakFastItem;
+export default SmallChopItem;

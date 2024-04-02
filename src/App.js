@@ -34,10 +34,10 @@ function App() {
   };
 
   return (
-    <div className=" h-full relative bg-gray-900 text-white">
-      <main className=" lg:p-8 p-2 h-full flex gap-8">
+    <div className="app">
+      <main className="  h-full flex gap-8 py-7 px-7 ">
         <Nav active={active} setActive={setActive} />
-        <main className=" lg:flex-1 w-[100vw] h-[100vh]  bg-[#d7d7d7] border-[3px] border-white rounded-[32px] overflow-auto overflow-x-hidden ">
+        <main className=" lg:flex-1 w-[100vw] h-[100vh] bg-transparent   border-[3px]  rounded-[32px] overflow-auto overflow-x-hidden ">
           {displayData()}
         </main>
       </main>

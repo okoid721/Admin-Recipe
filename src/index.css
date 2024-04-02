@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.app {
+  background-image: url(../public/adminbackground.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+.background {
+  background-image: url(../public/adminbackground.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+  color: white;
+  overflow: hidden;
+}

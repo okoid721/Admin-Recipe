@@ -40,7 +40,7 @@ const BreakFastForm = () => {
 
   return (
     <form
-      className="text-black  flex flex-col lg:gap-[2rem] gap-[10px]"
+      className="text-black   flex flex-col lg:gap-[2rem] gap-[10px]"
       onSubmit={handleSubmit}
     >
       <div className=" flex flex-col">
@@ -53,16 +53,18 @@ const BreakFastForm = () => {
           className="outline-0 rounded-[5px] border-[2px] px-[20px] py-[10px] border-white "
         />
       </div>
-      <input
-        onChange={handleInput('image')}
-        type="text"
-        name="image"
-        value={image}
-        className="bg-white"
-        placeholder="Image Link Only"
-      />
+      <div className=" py-4 px-4 rounded-[20px] bg-white lg:w-[40%] w-fit">
+        <input
+          onChange={handleInput('image')}
+          type="file"
+          name="image"
+          value={image}
+          className="outline-0 rounded-[5px] border-[2px] px-[0] py-[0] border-white w-48"
+          placeholder="Image Link Only"
+        />
+      </div>
 
-      <div className="w-[70%] h-[500px]">
+      <div className="lg:w-[70%] w-full h-[500px]">
         <textarea
           type="text"
           value={directions}
@@ -94,7 +96,7 @@ const BreakFastForm = () => {
         </select>
       </div>
 
-      <div className=" w-[70%] h-[500px]">
+      <div className=" lg:w-[70%] w-full h-[500px]">
         <textarea
           name={'description'}
           id="description"
@@ -104,7 +106,7 @@ const BreakFastForm = () => {
           className="outline-0 rounded-[5px] border-[2px] px-[20px] py-[10px] h-full w-full  border-white  "
         ></textarea>
       </div>
-      <div className="w-[100%]">
+      <div className="lg:w-[70%] w-full">
         <textarea
           type="text"
           value={ingredients}
@@ -116,7 +118,6 @@ const BreakFastForm = () => {
       </div>
       <div className="submit-btn">
         <Button type="submit" label="Add BreakFast" />{' '}
-        {/* Trigger form submission */}
       </div>
     </form>
   );

@@ -4,7 +4,7 @@ const Button = ({ label }) => {
   return (
     <button
       type="submit"
-      className="px-8 py-4 bg-white rounded-md shadow-lg mb-8"
+      className="px-8 py-4 font-bold bg-white rounded-md shadow-lg mb-8"
     >
       {label}
     </button>
