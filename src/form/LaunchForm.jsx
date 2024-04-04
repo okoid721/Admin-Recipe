@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { FaUpload } from 'react-icons/fa';
 import { useGlobalContext } from '../context/globalContext';
 import Button from '../Button';
-import toast from 'react-hot-toast';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const LaunchForm = () => {
   const { addLaunch, getLaunch } = useGlobalContext();
@@ -25,6 +27,18 @@ const LaunchForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     addLaunch(inputState);
+    if (
+      !name ||
+      !image ||
+      !category ||
+      !directions ||
+      !description ||
+      !ingredients
+    ) {
+      // If any required field is empty, display error toast
+      toast.error('Please fill in all fields');
+      return; // Exit the function without adding the dinner
+    }
     // Clear the form after submission
     setInputState({
       name: '',
@@ -35,7 +49,7 @@ const LaunchForm = () => {
       ingredients: '',
     });
     getLaunch();
-    toast.success('Breakfast item added successfully!');
+    toast.success('Lunch item added successfully!');
   };
 
   return (
@@ -120,6 +134,7 @@ const LaunchForm = () => {
         <div className="submit-btn">
           <Button type="submit" label="Add Launch" />{' '}
         </div>
+        <ToastContainer />
       </form>
     </div>
   );

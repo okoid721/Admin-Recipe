@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { FaUpload } from 'react-icons/fa';
 import { useGlobalContext } from '../context/globalContext';
 import Button from '../Button';
-import toast from 'react-hot-toast';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const BreakFastForm = () => {
   const { addBreakfast, getBreakfast } = useGlobalContext();
@@ -24,6 +26,18 @@ const BreakFastForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (
+      !name ||
+      !image ||
+      !category ||
+      !directions ||
+      !description ||
+      !ingredients
+    ) {
+      // If any required field is empty, display error toast
+      toast.error('Please fill in all fields');
+      return; // Exit the function without adding the dinner
+    }
     addBreakfast(inputState);
     // Clear the form after submission
     setInputState({
@@ -119,6 +133,7 @@ const BreakFastForm = () => {
       <div className="submit-btn">
         <Button type="submit" label="Add BreakFast" />{' '}
       </div>
+      <ToastContainer />
     </form>
   );
 };

@@ -1,50 +1,60 @@
-// import React from 'react';
-// import { useGlobalContext } from '../context/globalContext';
-// import BreakFastItem from '../items/BreakFastItem';
+import React, { useEffect, useState } from 'react';
 
-// const AllFood = () => {
-//   const { deleteBreakfast, getBreakfast, breakFast } = useGlobalContext();
+const AllFood = () => {
+  const [foodData, setFoodData] = useState({
+    breakfasts: [],
+    dinners: [],
+    launches: [],
+    smallChops: [],
+  });
 
-//   React.useEffect(() => {
-//     breakFast();
-//   }, []);
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-//   return (
-//     <div className="my-16 mx-0 text-center ">
-//       <h2 className="font-sans font-extrabold text-3xl underline mb-4">
-//         All Food
-//       </h2>
+  const fetchData = async () => {
+    try {
+      const response = await fetch(
+        'https://recipe-bakend.onrender.com/api/food/get-all'
+      );
+      const data = await response.json();
+      console.log('Data from API:', data);
+      setFoodData(data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
 
-//       <div className="income">
-//         {breakFast.length > 0 &&
-//           breakFast.map((breakfast) => {
-//             const {
-//               _id,
-//               name,
-//               image,
-//               directions,
-//               category,
-//               description,
-//               ingredients,
-//             } = breakfast;
-//             return (
-//               <BreakFastItem
-//                 key={_id}
-//                 id={_id}
-//                 name={name}
-//                 description={description}
-//                 image={image}
-//                 directions={directions}
-//                 category={category}
-//                 ingredients={ingredients}
-//                 deleteItem={deleteBreakfast}
-//                 // Pass deleteBreakfast
-//               />
-//             );
-//           })}
-//       </div>
-//     </div>
-//   );
-// };
+  return (
+    <div>
+      <div className="flex items-center flex-col ">
+        <div className=" flex items-center justify-center font-extrabold uppercase mb-10 underline">
+          All Data
+        </div>
+        <div className="w-[700px] h-[700px]">
+          {Object.keys(foodData).map((category) => (
+            <div
+              key={category}
+              className=" flex flex-col items-center flex-wrap gap-4"
+            >
+              <h2 className=" font-extrabold mt-10 underline uppercase ">
+                {category}
+              </h2>
+              <div className=" flex flex-wrap flex-row gap-8 items-center justify-center">
+                {foodData[category].map((item) => (
+                  <div key={item._id} className=" flex flex-col items-center  ">
+                    <img src={item.image} alt={item.name} className=" w-28" />
+                    <h3>{item.name}</h3>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div></div>
+      </div>
+    </div>
+  );
+};
 
-// export default AllFood;
+export default AllFood;
