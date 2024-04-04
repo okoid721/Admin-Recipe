@@ -5,24 +5,24 @@ import { FaBars } from 'react-icons/fa6';
 
 const Nav = ({ active, setActive }) => {
   const [isOpen, setIsOpen] = useState(false);
-  // const menuRef = useRef(null);
+  const menuRef = useRef(null);
 
-  // const toggleMenu = () => {
-  //   setIsOpen(!isOpen);
-  // };
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
-  // const handleOutsideClick = (event) => {
-  //   if (menuRef.current && !menuRef.current.contains(event.target)) {
-  //     setIsOpen(false);
-  //   }
-  // };
+  const handleOutsideClick = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setIsOpen(false);
+    }
+  };
 
-  // useEffect(() => {
-  //   document.addEventListener('mousedown', handleOutsideClick);
-  //   return () => {
-  //     document.removeEventListener('mousedown', handleOutsideClick);
-  //   };
-  // }, []);
+  useEffect(() => {
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, []);
 
   return (
     <div className=" bg-transparent">
@@ -44,7 +44,7 @@ const Nav = ({ active, setActive }) => {
             </div>
             <ul
               className=" flex  flex-col gap-5 items-center relative "
-              // onClick={toggleMenu}
+              onClick={toggleMenu}
             >
               {menuItems.map((item) => {
                 return (

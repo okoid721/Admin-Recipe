@@ -38,7 +38,10 @@ export const GlobalProvider = ({ children }) => {
   };
   const addSmallChop = async (smallchop) => {
     try {
-      const response = await axios.post(`${BASE_URL}/add-smallchop`, smallchop);
+      const response = await axios.post(
+        `https://recipe-bakend.onrender.com/api/food/add-smallchop`,
+        smallchop
+      );
     } catch (error) {
       setError(error.response.data.message);
     }

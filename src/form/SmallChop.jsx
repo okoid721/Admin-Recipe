@@ -54,13 +54,13 @@ const SmallChop = () => {
             className="outline-0 rounded-[5px] font-extrabold underline border-[2px] px-[20px] py-[10px] border-white "
           />
         </div>
-        <div className=" py-4 px-4 rounded-[20px] bg-white lg:w-[40%] w-fit">
+        <div className="lg:w-[70%] w-full h-[50px]">
           <input
             onChange={handleInput('image')}
-            type="file"
+            type="text"
             name="image"
             value={image}
-            className="outline-0 rounded-[5px] border-[2px] px-[0] py-[0] border-white w-48"
+            className="outline-0 rounded-[5px] border-[2px] px-[0] py-[0] border-white w-full h-full"
             placeholder="Image Link Only"
           />
         </div>

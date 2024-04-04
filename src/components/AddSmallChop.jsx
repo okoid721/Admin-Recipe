@@ -2,12 +2,12 @@
 import React from 'react';
 import { useGlobalContext } from '../context/globalContext';
 
-import DinnerForm from '../form/DinnerForm';
-import DinnerItem from '../items/DinnerItem';
+import SmallChopItem from '../items/SmallChopItem';
 import SmallChop from '../form/SmallChop';
 
 const AddSmallChop = () => {
-  const { smallChop, getSmallChops, deleteSmallChops } = useGlobalContext();
+  const { addSmallChop, smallChop, getSmallChops, deleteSmallChops } =
+    useGlobalContext();
   React.useEffect(() => {
     getSmallChops();
   }, []);
@@ -22,7 +22,7 @@ const AddSmallChop = () => {
           </div>
           <div>
             {smallChop.length > 0 &&
-              smallChop.map((lunch) => {
+              smallChop.map((smallChop) => {
                 const {
                   _id,
                   name,
@@ -31,9 +31,9 @@ const AddSmallChop = () => {
                   category,
                   description,
                   ingredients,
-                } = lunch;
+                } = smallChop;
                 return (
-                  <DinnerItem
+                  <SmallChopItem
                     key={_id}
                     id={_id}
                     name={name}
