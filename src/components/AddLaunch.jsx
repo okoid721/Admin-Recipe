@@ -18,7 +18,7 @@ const AddLaunch = () => {
           <div className="form-container">
             <LaunchForm />
           </div>
-          <div>
+          {/* <div>
             {launch.length > 0 &&
               launch.map((lunch) => {
                 const {
@@ -45,7 +45,7 @@ const AddLaunch = () => {
                   />
                 );
               })}
-          </div>
+          </div> */}
         </div>
       </main>
     </div>

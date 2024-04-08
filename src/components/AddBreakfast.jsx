@@ -20,7 +20,7 @@ const AddBreakfast = () => {
             <BreakFastForm />
           </div>
 
-          <div>
+          {/* <div>
             {breakFast.length > 0 &&
               breakFast.map((breakfast) => {
                 const {
@@ -47,7 +47,7 @@ const AddBreakfast = () => {
                   />
                 );
               })}
-          </div>
+          </div> */}
         </div>
       </main>
     </div>

@@ -19,7 +19,7 @@ const AddDinner = () => {
           <div className="form-container">
             <DinnerForm />
           </div>
-          <div>
+          {/* <div>
             {dinner.length > 0 &&
               dinner.map((lunch) => {
                 const {
@@ -46,7 +46,7 @@ const AddDinner = () => {
                   />
                 );
               })}
-          </div>
+          </div> */}
         </div>
       </main>
     </div>

@@ -20,7 +20,7 @@ const AddSmallChop = () => {
           <div className="form-container">
             <SmallChop />
           </div>
-          <div>
+          {/* <div>
             {smallChop.length > 0 &&
               smallChop.map((smallChop) => {
                 const {
@@ -47,7 +47,7 @@ const AddSmallChop = () => {
                   />
                 );
               })}
-          </div>
+          </div> */}
         </div>
       </main>
     </div>
